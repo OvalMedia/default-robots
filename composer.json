@@ -3,10 +3,7 @@
   "description": "Changes the robots meta tag to 'NOINDEX,NOFOLLOW' for some sensible pages like login",
   "type": "magento2-module",
   "require": {
-    "magento/framework": "*",
-    "hyva-themes/magento2-compat-module-fallback": "*",
-    "magewirephp/magewire": "*",
-    "netresearch/module-shipping-ui": "*"
+    "magento/framework": "*"
   },
   "authors": [
     {
@@ -20,7 +17,7 @@
       "src/registration.php"
     ],
     "psr-4": {
-      "OM\\Nofollow\\": "src/"
+      "OM\\DefaultRobots\\": "src/"
     }
   }
 }
