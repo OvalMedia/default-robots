@@ -8,6 +8,7 @@ use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\App\Request\Http;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory;
 
 class LayoutLoadBefore implements ObserverInterface
 {
@@ -52,7 +53,13 @@ class LayoutLoadBefore implements ObserverInterface
                 $layout->getUpdate()->addHandle('noindex_follow');
             }
 
-            if (!empty($_GET['p'])) {
+            $params = $this->_request->getParams();
+
+            if (isset($params['id'])) {
+                unset($params['id']);
+            }
+
+            if (!empty($params)) {
                 $layout->getUpdate()->addHandle('noindex_follow');
             }
         }
